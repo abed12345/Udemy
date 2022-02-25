@@ -11,7 +11,20 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= @name %>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+         <%= render partial: "layouts/menu" %>
+        </div>
+      </div>
+    </div>
+    <div class="container"">
+      <div class="row">
+        <div class="col">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= render partial: "layouts/footer" %>
   </body>
 </html>
