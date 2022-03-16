@@ -3,7 +3,15 @@ class Post < ApplicationRecord
     validates :body, presence: true, length: { minimum: 2 }
     validates :summary, presence: true
     
-    def details
-        "created on #{created_at.strftime("%d %M %Y")}"
+   belongs_to :category
+
+   after_create :update_total_posts_count
+
+   private
+
+   def update_total_posts_count
+
+    category.increment(:total_count, 1)
+    
     end
 end
